@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://qonxx3y6bu3c"]
+
+[ext_resource type="Script" uid="uid://ckrio6q0k1aoe" path="res://script/achievements_1.gd" id="1_j652w"]
+[ext_resource type="Texture2D" uid="uid://bffh1dh8bffb6" path="res://assets/my-assets/cup.png" id="1_x5ut8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j652w"]
+size = Vector2(18, 18)
+
+[node name="achievements_1" type="Area2D"]
+script = ExtResource("1_j652w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x5ut8")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_j652w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

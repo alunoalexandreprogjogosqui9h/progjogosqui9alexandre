@@ -1,0 +1,775 @@
+/*
+===============================================================================
+PDF A4 - ROBOTO - ALTO CONTRASTE - OBSIDIAN / OBSIDIANITE
+===============================================================================
+
+OBJETIVO
+- Alterar SOMENTE a janela usada pelo Obsidian para imprimir/exportar PDF.
+- Manter o tema Obsidianite normal durante a edição.
+- Remover degradês claros, lilás, azul-claro e enfeites do tema no PDF.
+- Usar Roboto, negrito preto comum e código entre crases em preto.
+
+POR QUE ESTE ARQUIVO USA .print E @media print?
+- Em algumas versões do Obsidian, o PDF é montado dentro de um contêiner .print.
+- @media print sozinho pode não vencer todas as regras do tema.
+- A combinação dos dois métodos é mais resistente.
+
+FONTE
+- A fonte Roboto precisa estar instalada no Windows.
+- Se não estiver, o navegador usará Arial como substituta.
+===============================================================================
+*/
+
+/* --------------------------------------------------------------------------
+   1. VARIÁVEIS SOMENTE DA JANELA DE PDF
+   -------------------------------------------------------------------------- */
+
+body.print,
+.print {
+  --pdf-font-text: "Roboto", Arial, Helvetica, sans-serif;
+  --pdf-font-code: "Roboto Mono", Consolas, "Courier New", monospace;
+
+  --pdf-black: #111111;
+  --pdf-black-strong: #000000;
+  --pdf-blue-dark: #0b3d6e;
+  --pdf-gray-1: #f3f4f6;
+  --pdf-gray-2: #e5e7eb;
+  --pdf-gray-3: #9ca3af;
+  --pdf-border: #60656d;
+
+  --background-primary: #ffffff !important;
+  --background-primary-alt: #ffffff !important;
+  --background-secondary: #ffffff !important;
+  --background-secondary-alt: #f3f4f6 !important;
+
+  --text-normal: var(--pdf-black) !important;
+  --text-muted: #333333 !important;
+  --text-faint: #4b5563 !important;
+  --text-accent: var(--pdf-blue-dark) !important;
+  --text-accent-hover: #072b4e !important;
+  --text-sub-accent: var(--pdf-blue-dark) !important;
+
+  --h1-color: var(--pdf-black-strong) !important;
+  --h2-color: var(--pdf-black-strong) !important;
+  --h3-color: var(--pdf-black-strong) !important;
+  --h4-color: var(--pdf-black-strong) !important;
+  --h5-color: var(--pdf-black-strong) !important;
+  --h6-color: var(--pdf-black-strong) !important;
+  --bold-color: var(--pdf-black-strong) !important;
+  --italic-color: var(--pdf-black) !important;
+  --link-color: var(--pdf-blue-dark) !important;
+  --link-external-color: var(--pdf-blue-dark) !important;
+  --code-normal: var(--pdf-black) !important;
+  --code-background: var(--pdf-gray-1) !important;
+
+  /* Variáveis usadas pelo próprio tema Obsidianite. */
+  --default-font: var(--pdf-font-text) !important;
+  --font-family-preview: var(--pdf-font-text) !important;
+  --font-text: var(--pdf-font-text) !important;
+  --font-interface: var(--pdf-font-text) !important;
+
+  color: var(--pdf-black) !important;
+  background: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. BASE DO DOCUMENTO
+   -------------------------------------------------------------------------- */
+
+body.print,
+body.print .markdown-preview-view,
+body.print .markdown-rendered,
+body.print .markdown-preview-section,
+.print,
+.print .markdown-preview-view,
+.print .markdown-rendered,
+.print .markdown-preview-section {
+  color: var(--pdf-black) !important;
+  background: #ffffff !important;
+  font-family: var(--pdf-font-text) !important;
+  font-size: 10.8pt !important;
+  font-weight: 400 !important;
+  line-height: 1.52 !important;
+  text-shadow: none !important;
+  filter: none !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Força Roboto nos elementos textuais e impede Arial Black do tema. */
+body.print
+  :is(
+    p,
+    li,
+    div,
+    span,
+    dt,
+    dd,
+    th,
+    td,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b,
+    em,
+    i,
+    a
+  ),
+.print
+  :is(
+    p,
+    li,
+    div,
+    span,
+    dt,
+    dd,
+    th,
+    td,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b,
+    em,
+    i,
+    a
+  ) {
+  font-family: var(--pdf-font-text) !important;
+}
+
+/* Remove os efeitos neon/degradê do tema de todos os textos. */
+body.print .markdown-rendered *,
+body.print .markdown-preview-view *,
+.print .markdown-rendered *,
+.print .markdown-preview-view * {
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. TEXTO, NEGRITO E ITÁLICO
+   -------------------------------------------------------------------------- */
+
+body.print :is(p, li, dt, dd),
+.print :is(p, li, dt, dd) {
+  color: var(--pdf-black) !important;
+  -webkit-text-fill-color: var(--pdf-black) !important;
+}
+
+/* O Obsidianite aplica degradê com !important no strong. Esta regra vence. */
+body.print :is(strong, b, .cm-strong),
+body.print :is(strong, b, .cm-strong) *,
+.print :is(strong, b, .cm-strong),
+.print :is(strong, b, .cm-strong) * {
+  color: var(--pdf-black-strong) !important;
+  -webkit-text-fill-color: var(--pdf-black-strong) !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  font-family: var(--pdf-font-text) !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+
+body.print :is(em, i),
+.print :is(em, i) {
+  color: var(--pdf-black) !important;
+  -webkit-text-fill-color: var(--pdf-black) !important;
+  background-image: none !important;
+  font-family: var(--pdf-font-text) !important;
+  font-weight: 400 !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. TÍTULOS
+   -------------------------------------------------------------------------- */
+
+body.print :is(.inline-title, h1, h2, h3, h4, h5, h6),
+body.print :is(.inline-title, h1, h2, h3, h4, h5, h6) *,
+.print :is(.inline-title, h1, h2, h3, h4, h5, h6),
+.print :is(.inline-title, h1, h2, h3, h4, h5, h6) * {
+  color: var(--pdf-black-strong) !important;
+  -webkit-text-fill-color: var(--pdf-black-strong) !important;
+  background: transparent !important;
+  background-image: none !important;
+  border-image: none !important;
+  font-family: var(--pdf-font-text) !important;
+  font-weight: 700 !important;
+  line-height: 1.22 !important;
+  break-after: avoid-page !important;
+  page-break-after: avoid !important;
+}
+
+body.print .inline-title,
+.print .inline-title {
+  font-size: 22pt !important;
+  margin: 0 0 22px !important;
+}
+
+body.print h1,
+.print h1 {
+  font-size: 21pt !important;
+}
+
+body.print h2,
+.print h2 {
+  font-size: 17pt !important;
+  margin: 30px 0 14px !important;
+  padding-bottom: 5px !important;
+  border: 0 !important;
+  border-bottom: 1.4px solid #333333 !important;
+}
+
+body.print h3,
+.print h3 {
+  font-size: 14.5pt !important;
+  margin: 25px 0 12px !important;
+  padding-bottom: 4px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #555555 !important;
+}
+
+body.print h4,
+.print h4 {
+  font-size: 12pt !important;
+  margin: 21px 0 10px !important;
+  padding-bottom: 3px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #777777 !important;
+}
+
+body.print h5,
+.print h5 {
+  font-size: 11pt !important;
+}
+
+body.print h6,
+.print h6 {
+  font-size: 10.5pt !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. LINKS - AZUL ESCURO
+   -------------------------------------------------------------------------- */
+
+body.print :is(a, .internal-link, .external-link),
+body.print :is(a, .internal-link, .external-link) *,
+.print :is(a, .internal-link, .external-link),
+.print :is(a, .internal-link, .external-link) * {
+  color: var(--pdf-blue-dark) !important;
+  -webkit-text-fill-color: var(--pdf-blue-dark) !important;
+  background: transparent !important;
+  background-image: none !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--pdf-blue-dark) !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 2px !important;
+}
+
+/* Negrito dentro de link continua preto, como solicitado. */
+body.print :is(a strong, a b, strong a, b a),
+body.print :is(a strong, a b, strong a, b a) *,
+.print :is(a strong, a b, strong a, b a),
+.print :is(a strong, a b, strong a, b a) * {
+  color: var(--pdf-black-strong) !important;
+  -webkit-text-fill-color: var(--pdf-black-strong) !important;
+  font-weight: 700 !important;
+  text-decoration-color: var(--pdf-black-strong) !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. CÓDIGO ENTRE CRASES
+   -------------------------------------------------------------------------- */
+
+body.print :not(pre) > code,
+body.print p code,
+body.print li code,
+body.print td code,
+body.print th code,
+body.print blockquote code,
+body.print .callout code,
+.print :not(pre) > code,
+.print p code,
+.print li code,
+.print td code,
+.print th code,
+.print blockquote code,
+.print .callout code {
+  color: var(--pdf-black) !important;
+  -webkit-text-fill-color: var(--pdf-black) !important;
+  background: var(--pdf-gray-1) !important;
+  background-image: none !important;
+  border: 1px solid #c8cdd3 !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  padding: 1px 4px !important;
+  font-family: var(--pdf-font-code) !important;
+  font-size: 0.91em !important;
+  font-weight: 400 !important;
+  overflow-wrap: anywhere !important;
+}
+
+body.print :not(pre) > code *,
+.print :not(pre) > code * {
+  color: var(--pdf-black) !important;
+  -webkit-text-fill-color: var(--pdf-black) !important;
+  background: transparent !important;
+  background-image: none !important;
+  font-family: var(--pdf-font-code) !important;
+  font-weight: 400 !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. BLOCOS DE CÓDIGO
+   -------------------------------------------------------------------------- */
+
+body.print pre,
+body.print pre[class*="language-"],
+.print pre,
+.print pre[class*="language-"] {
+  color: var(--pdf-black) !important;
+  background: var(--pdf-gray-1) !important;
+  background-image: none !important;
+  border: 1px solid #b8bec6 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  break-inside: avoid-page !important;
+  page-break-inside: avoid !important;
+}
+
+body.print pre code,
+body.print pre code *,
+body.print code[class*="language-"],
+body.print code[class*="language-"] *,
+.print pre code,
+.print pre code *,
+.print code[class*="language-"],
+.print code[class*="language-"] * {
+  color: var(--pdf-black) !important;
+  -webkit-text-fill-color: var(--pdf-black) !important;
+  background: transparent !important;
+  background-image: none !important;
+  font-family: var(--pdf-font-code) !important;
+  font-size: 9.2pt !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Etiqueta PowerShell/Bash/etc. do tema. */
+body.print pre[class*="language-"]::before,
+.print pre[class*="language-"]::before {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  background: #d7dbe0 !important;
+  background-image: none !important;
+  border: 1px solid #9ca3af !important;
+  font-family: var(--pdf-font-text) !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. BLOCKQUOTES ANTIGOS E CALLOUTS DO OBSIDIAN
+   -------------------------------------------------------------------------- */
+
+body.print blockquote,
+.print blockquote {
+  color: var(--pdf-black) !important;
+  background: #f5f6f7 !important;
+  background-image: none !important;
+  border: 1px solid #8b929a !important;
+  border-left: 5px solid #30343a !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+  margin: 16px 0 !important;
+  padding: 11px 15px !important;
+  break-inside: avoid-page !important;
+  page-break-inside: avoid !important;
+}
+
+body.print blockquote *,
+.print blockquote * {
+  color: var(--pdf-black) !important;
+  -webkit-text-fill-color: var(--pdf-black) !important;
+}
+
+/* Remove o !!, as barras neon e os degradês do Obsidianite. */
+body.print blockquote::before,
+body.print blockquote::after,
+body.print blockquote p:first-of-type::before,
+.print blockquote::before,
+.print blockquote::after,
+.print blockquote p:first-of-type::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+body.print .callout,
+.print .callout {
+  --callout-color: 48, 52, 58 !important;
+  color: var(--pdf-black) !important;
+  background: #f5f6f7 !important;
+  background-image: none !important;
+  border: 1px solid #8b929a !important;
+  border-left: 5px solid #30343a !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+  filter: none !important;
+  break-inside: avoid-page !important;
+  page-break-inside: avoid !important;
+}
+
+body.print :is(.callout-title, .callout-title-inner),
+body.print :is(.callout-title, .callout-title-inner) *,
+.print :is(.callout-title, .callout-title-inner),
+.print :is(.callout-title, .callout-title-inner) * {
+  color: var(--pdf-black-strong) !important;
+  -webkit-text-fill-color: var(--pdf-black-strong) !important;
+  background: transparent !important;
+  background-image: none !important;
+  font-family: var(--pdf-font-text) !important;
+  font-weight: 700 !important;
+}
+
+body.print :is(.callout-content, .callout-content p, .callout-content li),
+.print :is(.callout-content, .callout-content p, .callout-content li) {
+  color: var(--pdf-black) !important;
+  -webkit-text-fill-color: var(--pdf-black) !important;
+}
+
+body.print .callout-icon,
+body.print .callout-icon svg,
+.print .callout-icon,
+.print .callout-icon svg {
+  color: #30343a !important;
+  stroke: #30343a !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. LINHAS HORIZONTAIS
+   -------------------------------------------------------------------------- */
+
+body.print hr,
+.print hr {
+  height: 0 !important;
+  margin: 24px 0 !important;
+  border: 0 !important;
+  border-top: 1px solid #7b8188 !important;
+  border-image: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove o símbolo § criado pelo Obsidianite. */
+body.print hr::before,
+body.print hr::after,
+.print hr::before,
+.print hr::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   10. TABELAS - CORRIGE A COLUNA CORTADA DA PÁGINA 2
+   -------------------------------------------------------------------------- */
+
+body.print table,
+.print table {
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+  font-size: 9.2pt !important;
+  break-inside: auto !important;
+  page-break-inside: auto !important;
+}
+
+body.print thead,
+.print thead {
+  display: table-header-group !important;
+}
+
+body.print tr,
+.print tr {
+  break-inside: avoid-page !important;
+  page-break-inside: avoid !important;
+}
+
+body.print th,
+body.print td,
+.print th,
+.print td {
+  color: var(--pdf-black) !important;
+  -webkit-text-fill-color: var(--pdf-black) !important;
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid #777e86 !important;
+  padding: 6px 7px !important;
+  vertical-align: top !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  hyphens: auto !important;
+}
+
+body.print th,
+.print th {
+  color: var(--pdf-black-strong) !important;
+  -webkit-text-fill-color: var(--pdf-black-strong) !important;
+  background: #dfe3e8 !important;
+  font-weight: 700 !important;
+}
+
+/* Tabelas com quatro colunas, como a tabela de downloads. */
+body.print table:has(th:nth-child(4)) th:nth-child(1),
+body.print table:has(th:nth-child(4)) td:nth-child(1),
+.print table:has(th:nth-child(4)) th:nth-child(1),
+.print table:has(th:nth-child(4)) td:nth-child(1) {
+  width: 8% !important;
+}
+
+body.print table:has(th:nth-child(4)) th:nth-child(2),
+body.print table:has(th:nth-child(4)) td:nth-child(2),
+.print table:has(th:nth-child(4)) th:nth-child(2),
+.print table:has(th:nth-child(4)) td:nth-child(2) {
+  width: 21% !important;
+}
+
+body.print table:has(th:nth-child(4)) th:nth-child(3),
+body.print table:has(th:nth-child(4)) td:nth-child(3),
+.print table:has(th:nth-child(4)) th:nth-child(3),
+.print table:has(th:nth-child(4)) td:nth-child(3) {
+  width: 35% !important;
+}
+
+body.print table:has(th:nth-child(4)) th:nth-child(4),
+body.print table:has(th:nth-child(4)) td:nth-child(4),
+.print table:has(th:nth-child(4)) th:nth-child(4),
+.print table:has(th:nth-child(4)) td:nth-child(4) {
+  width: 36% !important;
+}
+
+/* --------------------------------------------------------------------------
+   11. LISTAS E CHECKBOXES
+   -------------------------------------------------------------------------- */
+
+body.print :is(ul, ol),
+.print :is(ul, ol) {
+  padding-inline-start: 1.6em !important;
+}
+
+body.print :is(ul > li::marker, ol > li::marker),
+.print :is(ul > li::marker, ol > li::marker) {
+  color: #333333 !important;
+}
+
+body.print input[type="checkbox"],
+.print input[type="checkbox"] {
+  accent-color: #222222 !important;
+}
+
+/* --------------------------------------------------------------------------
+   12. IMAGENS E DESTAQUES
+   -------------------------------------------------------------------------- */
+
+body.print img,
+.print img {
+  max-width: 100% !important;
+  box-shadow: none !important;
+}
+
+body.print mark,
+.print mark {
+  color: var(--pdf-black) !important;
+  -webkit-text-fill-color: var(--pdf-black) !important;
+  background: #fff1a8 !important;
+}
+
+/* --------------------------------------------------------------------------
+   13. CONFIGURAÇÃO REAL DA PÁGINA
+   -------------------------------------------------------------------------- */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 16mm 15mm 17mm 15mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  /* Segurança adicional caso a versão do Obsidian não exponha .print como esperado. */
+  body,
+  .markdown-preview-view,
+  .markdown-rendered,
+  .markdown-preview-section {
+    --default-font: "Roboto", Arial, Helvetica, sans-serif !important;
+    --font-family-preview: "Roboto", Arial, Helvetica, sans-serif !important;
+    --font-text: "Roboto", Arial, Helvetica, sans-serif !important;
+    color: #111111 !important;
+    background: #ffffff !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   14. CENTRALIZAÇÃO COMPLETA DO CONTEÚDO NO PDF
+   -------------------------------------------------------------------------- */
+
+body.print,
+body.print .markdown-preview-view,
+body.print .markdown-rendered,
+body.print .markdown-preview-section,
+.print,
+.print .markdown-preview-view,
+.print .markdown-rendered,
+.print .markdown-preview-section {
+  text-align: center !important;
+}
+
+body.print :is(
+  .inline-title,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  div,
+  span,
+  blockquote,
+  .callout,
+  .callout-title,
+  .callout-title-inner,
+  .callout-content,
+  ul,
+  ol,
+  li,
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td,
+  pre,
+  code
+),
+.print :is(
+  .inline-title,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  div,
+  span,
+  blockquote,
+  .callout,
+  .callout-title,
+  .callout-title-inner,
+  .callout-content,
+  ul,
+  ol,
+  li,
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td,
+  pre,
+  code
+) {
+  text-align: center !important;
+}
+
+body.print :is(ul, ol),
+.print :is(ul, ol) {
+  list-style-position: inside !important;
+  padding-inline-start: 0 !important;
+}
+
+body.print table,
+.print table {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body.print img,
+.print img {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media print {
+  body,
+  .markdown-preview-view,
+  .markdown-rendered,
+  .markdown-preview-section {
+    text-align: center !important;
+  }
+
+  :is(
+    .inline-title,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    div,
+    span,
+    blockquote,
+    .callout,
+    .callout-title,
+    .callout-title-inner,
+    .callout-content,
+    ul,
+    ol,
+    li,
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td,
+    pre,
+    code
+  ) {
+    text-align: center !important;
+  }
+
+  :is(ul, ol) {
+    list-style-position: inside !important;
+    padding-inline-start: 0 !important;
+  }
+
+  table,
+  img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

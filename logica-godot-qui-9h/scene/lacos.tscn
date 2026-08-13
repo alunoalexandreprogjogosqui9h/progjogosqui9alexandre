@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctw4m26jhcuqr"]
+
+[ext_resource type="Script" uid="uid://ci143hkro3ahf" path="res://scripts/lacos.gd" id="1_symtd"]
+
+[node name="lacos" type="Node2D"]
+script = ExtResource("1_symtd")

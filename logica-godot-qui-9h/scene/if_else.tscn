@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bub2os6tr4qpd"]
+
+[ext_resource type="Script" uid="uid://bdesahmyiam52" path="res://scripts/if_else.gd" id="1_nrrj7"]
+
+[node name="if_else" type="Node2D"]
+script = ExtResource("1_nrrj7")

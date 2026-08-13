@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkhrn7d85j300"]
+
+[ext_resource type="Script" uid="uid://dps3xk0iww55e" path="res://script/conquest.gd" id="1_cd2xk"]
+[ext_resource type="Texture2D" uid="uid://bffh1dh8bffb6" path="res://assets/my-assets/cup.png" id="2_cd2xk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cd2xk"]
+radius = 4.0
+height = 10.666667
+
+[node name="conquest" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_cd2xk")
+bonus_jump = -500.0
+
+[node name="texture" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cd2xk")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.6666667, 1.3333334)
+shape = SubResource("CapsuleShape2D_cd2xk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

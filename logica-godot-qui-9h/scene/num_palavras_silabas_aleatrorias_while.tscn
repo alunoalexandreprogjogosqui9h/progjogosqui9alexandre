@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7u87be8qijle"]
+
+[ext_resource type="Script" uid="uid://753ebvssw46n" path="res://scripts/num_palavras_silabas_aleatrorias_while.gd" id="1_cw7i7"]
+
+[node name="numPalavrasSilabasAleatroriasWhile" type="Node2D"]
+script = ExtResource("1_cw7i7")
