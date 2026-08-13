@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "myProjects/01-BeatSinger.md",
+                "file": "myProjects/BeatSinger/configurandoGit.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-BeatSinger"
+              "title": "configurandoGit"
             }
           }
         ]
@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "2e9809cf343273fa",
@@ -190,6 +190,9 @@
   },
   "active": "42271bd06ee1edde",
   "lastOpenFiles": [
+    "myProjects/BeatSinger/01-BeatSinger.md",
+    "myProjects/BeatSinger/configurandoGit.md",
+    "myProjects/BeatSinger",
     "Buttons, Pre Animation and Arrows.png",
     "Button and Arrows.png",
     "pdf/01-BeatSinger.pdf",
@@ -198,7 +201,6 @@
     "01-tarefas.md",
     "Sem título.md",
     "Guitar_hero_logo.png",
-    "myProjects/01-BeatSinger.md",
     "Bem-vindo.md",
     "myProjects",
     "meusEstudos"
