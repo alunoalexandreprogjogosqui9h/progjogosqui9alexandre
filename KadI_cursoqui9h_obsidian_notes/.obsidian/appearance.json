@@ -1,6 +1,8 @@
 {
-  "cssTheme": "Purple Aurora",
+  "cssTheme": "Vauxhall",
   "enabledCssSnippets": [
     "PDF-Legivel-Obsidianite"
-  ]
+  ],
+  "theme": "obsidian",
+  "accentColor": "#4c00ff"
 }

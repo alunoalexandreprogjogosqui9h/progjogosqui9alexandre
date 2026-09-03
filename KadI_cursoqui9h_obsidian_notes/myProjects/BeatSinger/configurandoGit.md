@@ -7,6 +7,10 @@
 - git add .
 - git commit -m "Mensagem sobre a alteração que eu fiz"
 - git push (enviar)
+- git code . "abrir VS CODE direto no Terminal"
+- git clone . 
+- cd ~
+- cd desktop 
 ## Formato Codigo
 ```sh
 git config --local user.name "alunoalexandreprogjogosqui9h"

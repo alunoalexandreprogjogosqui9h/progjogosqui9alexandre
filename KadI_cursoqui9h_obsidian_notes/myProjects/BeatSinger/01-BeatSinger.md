@@ -1,5 +1,5 @@
-![[Guitar_hero_logo.png]]
 
+![[Title_BeatSinger.png]]
 # Project[BeatSinger]
 
 >[!info] Project
@@ -153,6 +153,6 @@ A(Menu)
 >[!example] Musics
 >Tutorial
 >Awaken your dreams
->
+>Sacred Scars
 
-
+![[Score_1.png|273]]
