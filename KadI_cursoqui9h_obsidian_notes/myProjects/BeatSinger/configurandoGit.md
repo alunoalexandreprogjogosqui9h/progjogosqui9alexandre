@@ -13,6 +13,8 @@
 - cd ~
 - cd desktop 
 - git status (verifica esta tudo pronto)
+- git log (mostrar tudo o que você no GitHub)   Variable git log --oneline (exibe todo o log em uma linha)    Variable2 git log --graph (exibe um grafico)    Variable3 git log --graph oneline (mostra todo o grafico em uma linha)
+- git checkout
 ## Formato Codigo
 ```sh
 git config --local user.name "alunoalexandreprogjogosqui9h"
