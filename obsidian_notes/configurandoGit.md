@@ -31,6 +31,7 @@ git commit -m "Mensagem sobre a alteração que eu fiz"
 git push
 ```
 
+Se você apenas copiar, ir to terminal e colar funciona do mesmo jeito de anotar manualmente no terminal. 
 ### EM CASA
 
 > FAZER GIT CONFIG LOCAL EM CASA SOMENTE SE TIVER UMA SÓ CONTA DO GIT 

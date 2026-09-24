@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://12qg1gku8x5d"]
+
+[ext_resource type="Texture2D" uid="uid://dvdsxxd1071gw" path="res://assets/Buttons, Pre Animation and Arrows.png" id="1_4cadw"]
+
+[node name="button_yellow" type="Node2D" unique_id=1182937874]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=336029378]
+scale = Vector2(4, 4)
+texture = ExtResource("1_4cadw")
+hframes = 4
+vframes = 4
+frame = 9
