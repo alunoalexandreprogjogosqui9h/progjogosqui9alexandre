@@ -1,5 +1,5 @@
 
-![[Title_BeatSinger.png]]
+![[myProjects/BeatSinger/images/Title_BeatSinger.png]]
 # Project[BeatSinger]
 
 >[!info] Project
@@ -155,4 +155,4 @@ A(Menu)
 >Awaken your dreams
 >Sacred Scars
 
-![[Score_1.png|273]]
+![[myProjects/BeatSinger/images/Score_1.png|273]]
