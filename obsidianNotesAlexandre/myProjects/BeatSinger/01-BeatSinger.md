@@ -7,6 +7,13 @@
 >
 >Status: Development 
 
+Genêro: Ritmo, RPG de turno.
+Mundo: Top Down.
+Progressão: A personagem principal aprende com sua mestra varias danças e varias artes marcias.
+Objetivo final: Ganhar o torneio de ?????????.
+Habilidades: A Dança.
+Enigmas: muitas coisas.
+
 ---
 ## Overview 
 
@@ -156,3 +163,4 @@ A(Menu)
 >Sacred Scars
 
 ![[myProjects/BeatSinger/images/Score_1.png|273]]
+

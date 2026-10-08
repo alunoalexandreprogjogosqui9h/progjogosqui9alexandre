@@ -1,0 +1,29 @@
+{
+	"nodes":[
+		{"id":"a9a64189275ce2a2","x":-260,"y":-30,"width":250,"height":60,"color":"6","type":"text","text":"Torneio final"},
+		{"id":"31f725baf3bb488e","x":120,"y":-180,"width":250,"height":60,"color":"6","type":"text","text":"você perde o torneio"},
+		{"id":"1e869fefa52c233c","x":120,"y":-30,"width":250,"height":60,"color":"6","type":"text","text":"você ganha o torneio"},
+		{"id":"750819525fb5b57e","type":"text","text":"você não consegue participar do torneio","x":120,"y":120,"width":250,"height":60,"color":"6"},
+		{"id":"f2f9eeee01cc290e","type":"text","text":"mas agora você consegue entrar com ajuda de um senhor bem mas bem estranho ai você acaba pegando uma doença \"incuravel\" mas alguem lhe fala você quer uma ajudinha e o jogo acaba.","x":280,"y":280,"width":255,"height":220,"color":"6"},
+		{"id":"643d7eed13d91fe7","x":410,"y":-110,"width":250,"height":220,"color":"6","type":"text","text":"você ganha o torneio e deixa seus inimigos chorando e falando \"CADE MINHA MÃE HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\" E voce vai embora feliz e rindo da cara dos outros adversarios"},
+		{"id":"1c1b378669453f34","x":285,"y":-480,"width":250,"height":200,"color":"6","type":"text","text":"você perde na final e tu vai embora de cabeça cabisbaixa e os seus inimigos rindo da sua cara e falando \"HAHAH parece que no final você não nada mesmo HAHAH\" "},
+		{"id":"83a7ab89b66d28b3","x":700,"y":-31,"width":120,"height":61,"color":"3","type":"text","text":"final bom"},
+		{"id":"1582ea272255b62d","x":585,"y":360,"width":160,"height":60,"color":"3","type":"text","text":"final verdadeiro"},
+		{"id":"376fb043d9a6b1b4","x":575,"y":-410,"width":125,"height":60,"color":"3","type":"text","text":"final ruim"},
+		{"id":"801a667df8b00bcd","x":-840,"y":-60,"width":250,"height":120,"color":"6","type":"text","text":"você para e sente um cheiro de cuzcuz com ovo e esquece do torneio e vai comer o cuzcuz com ovo"},
+		{"id":"e47b91b232c79070","x":-1160,"y":-30,"width":250,"height":60,"color":"2","type":"text","text":"final cuscuz "}
+	],
+	"edges":[
+		{"id":"68887a50c6bf4147","fromNode":"a9a64189275ce2a2","fromSide":"right","toNode":"31f725baf3bb488e","toSide":"left","color":"#00fbff","label":"linha 2"},
+		{"id":"d22ffcbf499e44ef","fromNode":"a9a64189275ce2a2","fromSide":"right","toNode":"1e869fefa52c233c","toSide":"left","label":"linha 1"},
+		{"id":"d8f166389a3c7e50","fromNode":"a9a64189275ce2a2","fromSide":"right","toNode":"750819525fb5b57e","toSide":"left","color":"#00fffb","label":"linha 3"},
+		{"id":"71d45ba377c4660a","fromNode":"750819525fb5b57e","fromSide":"bottom","toNode":"f2f9eeee01cc290e","toSide":"top","color":"#00fffb"},
+		{"id":"943575c39eeefdb0","fromNode":"1e869fefa52c233c","fromSide":"right","toNode":"643d7eed13d91fe7","toSide":"left","color":"#00fffb"},
+		{"id":"462a32bf5caa794f","fromNode":"83a7ab89b66d28b3","fromSide":"left","toNode":"643d7eed13d91fe7","toSide":"right","color":"2"},
+		{"id":"9ed8db7930ea5ac8","fromNode":"1582ea272255b62d","fromSide":"left","toNode":"f2f9eeee01cc290e","toSide":"right","color":"2"},
+		{"id":"1eea5f77862ead8c","fromNode":"31f725baf3bb488e","fromSide":"top","toNode":"1c1b378669453f34","toSide":"bottom","color":"#00fffb"},
+		{"id":"de999d7e64ea3b1c","fromNode":"376fb043d9a6b1b4","fromSide":"left","toNode":"1c1b378669453f34","toSide":"right","color":"2"},
+		{"id":"153e20e030e7985d","fromNode":"a9a64189275ce2a2","fromSide":"left","toNode":"801a667df8b00bcd","toSide":"right","color":"1","label":"linha alternativa"},
+		{"id":"10efc3d09cce7dcf","fromNode":"e47b91b232c79070","fromSide":"right","toNode":"801a667df8b00bcd","toSide":"left","color":"3"}
+	]
+}
