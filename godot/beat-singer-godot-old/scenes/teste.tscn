@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bnxusf81auk8g"]
+
+[ext_resource type="Script" uid="uid://eoh0llsio37b" path="res://scripts/Camera.cs" id="2_2gqm3"]
+[ext_resource type="PackedScene" uid="uid://b4c0prn0hkyth" path="res://scenes/button.tscn" id="2_3r2dd"]
+[ext_resource type="PackedScene" uid="uid://cl3rwr2megnj2" path="res://scenes/button_blue.tscn" id="3_dp01m"]
+
+[node name="teste" type="Node2D" unique_id=2136621652]
+
+[node name="camera" type="Camera2D" parent="." unique_id=1015264648]
+script = ExtResource("2_2gqm3")
+
+[node name="button" parent="." unique_id=366554718 instance=ExtResource("2_3r2dd")]
+position = Vector2(-60, 250)
+
+[node name="button2" parent="." unique_id=454753221 instance=ExtResource("2_3r2dd")]
+position = Vector2(-150, 250)
+
+[node name="button3" parent="." unique_id=1328979968 instance=ExtResource("2_3r2dd")]
+position = Vector2(136, 250)
+
+[node name="button4" parent="." unique_id=732366237 instance=ExtResource("2_3r2dd")]
+position = Vector2(47, 250)
+
+[node name="button_blue" parent="." unique_id=852302279 instance=ExtResource("3_dp01m")]
+position = Vector2(-225, 377)
