@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "gitHubAtualizado.md",
+                "file": "configurandoGit.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "gitHubAtualizado"
+              "title": "configurandoGit"
             }
           }
         ]
@@ -190,8 +190,8 @@
   },
   "active": "d5fdb8ee86171dbe",
   "lastOpenFiles": [
-    "configurandoGit.md",
     "gitHubAtualizado.md",
+    "configurandoGit.md",
     "Finais.canvas",
     "Nova ideia.md",
     "myProjects/BeatSinger/01-BeatSinger.md",

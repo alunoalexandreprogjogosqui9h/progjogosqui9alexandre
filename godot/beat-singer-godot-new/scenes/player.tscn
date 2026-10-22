@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1ao4h4gke0dl"]
 
-[ext_resource type="Texture2D" uid="uid://h1k8fh8j1daa" path="res://assets/icon.svg" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://b8o53i6h2nbri" path="res://assets/icon.svg" id="1_g2els"]
 [ext_resource type="Script" uid="uid://d12qkh5v1aiw8" path="res://scripts/Player.cs" id="2_g2els"]
 [ext_resource type="Script" uid="uid://c7w0ea5ty3wgs" path="res://scripts/Camera.cs" id="3_camera"]
 
@@ -9,7 +9,6 @@ size = Vector2(64, 64)
 
 [node name="player" type="CharacterBody2D" unique_id=640426988 groups=["player"]]
 script = ExtResource("2_g2els")
-metadata/_edit_group_ = true
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=817925288]
 position = Vector2(-30, -30)
